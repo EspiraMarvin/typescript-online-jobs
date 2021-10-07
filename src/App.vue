@@ -8,11 +8,19 @@
 // casting age variable as both string or number
 // let age: string | number = 25
 
-import { defineComponent } from 'vue';
+import { defineComponent, reactive, toRefs } from 'vue';
 
 export default defineComponent({
   name: 'App',
-  components: {}
+  components: {},
+  setup() {
+    const state = reactive({
+      name: 'Link',
+      age: 25 as string | number 
+    })
+
+    return {...toRefs(state) }
+  }
 });
 </script>
 
