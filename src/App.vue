@@ -1,20 +1,18 @@
 <template>
   <div class="app">
-    <p>{{ jobs[0].location }}</p>
+    <JobList :jobs="jobs" />
   </div>
 </template>
 
 <script lang="ts">
 
-// casting age variable as both string or nu mber
-// let age: string | number = 25
-
-import { defineComponent, reactive, ref, toRefs } from 'vue';
-import Job from './types/job'
+import { defineComponent, ref } from 'vue';
+import Job from './types/Job'
+import JobList from './components/JobList.vue'
 
 export default defineComponent({
   name: 'App',
-  components: {},
+  components: { JobList },
   setup() {
     
     const jobs = ref<Job[]>([
@@ -26,9 +24,6 @@ export default defineComponent({
     ])
 
     return  { jobs }
-  },
-  methods: {
-
   }
 });
 </script>
