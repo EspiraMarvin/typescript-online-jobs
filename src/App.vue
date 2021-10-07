@@ -1,21 +1,16 @@
 <template>
   <div class="app">
-    <p>Name - {{ name }}</p>
-    <p>Age - {{ age }}</p>
-    <button @click="changeName('Marvin')">Change Name</button>
-    <button @click="changeAge('30')">Change Age Type String</button>
-    <button @click="changeAge(30)">Change Age Type Number</button>
-
-      <p>Name - {{ name }}</p>
+    <p>{{ jobs[0].location }}</p>
   </div>
 </template>
 
 <script lang="ts">
 
-// casting age variable as both string or number
+// casting age variable as both string or nu mber
 // let age: string | number = 25
 
 import { defineComponent, reactive, ref, toRefs } from 'vue';
+import Job from './types/job'
 
 export default defineComponent({
   name: 'App',
@@ -32,25 +27,18 @@ export default defineComponent({
   //   state.age = 25
   //   return {...toRefs(state) }
 
-  // using refs
-  const name = ref('link')
-  // const age = ref(25) as number | string // this does not work as it returns a reference value not the actual value
-  const age = ref<number | string>(25) // this works using a generic
+    const jobs = ref<Job[]>([
+      { title: 'farm worker', location: 'Ion Ion Ranch', salary: 30000, id: '1' },
+      { title: 'quarryman', location: 'death mountain', salary: 40000, id: '2' },
+      { title: 'flute player', location: 'the lost woods', salary: 35000, id: '3' },
+      { title: 'fisherman', location: 'lake hylia', salary: 21000, id: '4' },
+      { title: 'prison guard', location: 'gerudo valley', salary: 32000, id: '5' }
+    ])
 
-  age.value = '27' // works
-  age.value = 27 // works
-
-    return {name, age}
+    return  { jobs }
   },
   methods: {
-    changeName(name: string){
-      this.name = name
-      return name
-    },
-    changeAge(age: string | number){
-      this.age = age
-      return age
-    }
+
   }
 });
 </script>
