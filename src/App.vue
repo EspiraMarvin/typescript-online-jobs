@@ -16,17 +16,7 @@ export default defineComponent({
   name: 'App',
   components: {},
   setup() {
-
-    // using reactive
-  //   const state = reactive({
-  //     name: 'Link',
-  //     age: 25 as string | number 
-  //   })
-  // // state.name = 98 // does not work as name is a string type and not a number type
-  //   state.name = 'Shaun' // works
-  //   state.age = 25
-  //   return {...toRefs(state) }
-
+    
     const jobs = ref<Job[]>([
       { title: 'farm worker', location: 'Ion Ion Ranch', salary: 30000, id: '1' },
       { title: 'quarryman', location: 'death mountain', salary: 40000, id: '2' },
